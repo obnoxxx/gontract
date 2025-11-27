@@ -15,7 +15,7 @@ func checkCondition(predicate bool, kind Kind, msg string) (ret string) {
 	}()
 
 	Condition(predicate, kind, msg)
-	return ret
+	return
 
 }
 
@@ -26,7 +26,7 @@ func TestCondition(t *testing.T) {
 		msg       string
 		expected  string
 	}{
-		{true, KindPre, "trivially true", "precondition not satisfied(trivially false) - software bug!?"},
+		{true, KindPre, "trivially true", "foo"},
 		{false, KindPost, "trivially false", "postcondition not satisfied (trivially false) - software bug!?"},
 	}
 
