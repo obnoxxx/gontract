@@ -1,5 +1,5 @@
 # gontract
-design-by-contract-like gpre- and postconditions  for golang
+design-by-contract-like pre- and postconditions  for golang
 
 
 Bertrand Meyer has introduced the  "design by contract" (DbC) paradigm for object oriented programming (OOP) along with his language Eiffel.
