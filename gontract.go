@@ -31,4 +31,15 @@ func Condition(predicate bool, kind Kind, msg string) {
 		panic(message)
 
 	}
+
+}
+func PreCondition(predicate bool, msg string) {
+
+	Condition(predicate, KindPre, msg)
+
+}
+
+func PostCondition(predicate bool, msg string) {
+
+	Condition(predicate, KindPost, msg)
 }
