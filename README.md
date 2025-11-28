@@ -3,7 +3,7 @@ design-by-contract-like pre- and postconditions  for golang
 
 ## Design by Contract
 
-Bertrand Meyer has introduced the  "Design by Contract" (DbC) paradigm for object oriented programming (OOP) along with his programming language Eiffel.
+Around 1988, [Bertrand Meyer](https://en.wikipedia.org/wiki/Bertrand_Meyer) has introduced the  ["Design by Contract" (DbC) paradigm](https://en.wikipedia.org/wiki/Design_by_contract) for object oriented programming (OOP) along with his [programming language Eiffel](https://en.wikipedia.org/wiki/Eiffel_(programming_language)). 
 
 DbC consists  mainly of three concepts:
 
