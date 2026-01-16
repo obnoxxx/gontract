@@ -8,15 +8,26 @@ go.vet: vet
 vet:
 		@go vet ./...
 
+
+.PHOHY: check.go.fmt
+check.go.fmt:
+	@echo "Checking go formatting..."
+	@if [ -n "$$(gofmt -l .)" ]; then \
+			echo "Files need formatting:"; \
+				gofmt -l .; \
+				exit 1; \
+	else \
+		echo "All files formatted correctly."; \
+	fi
 .PHONY: go.fmt
 go.fmt: fmt
 
-.PHONY: fmt
-fmt:
+.PHONY: fu=ix.go.fmt
+fix.go.fmt: #␣fix␣go␣formatting␣(if␣needed)
 	@ go fmt ./...
 
 .PHONY: test
-test:
+test: lint
 	@go test ./...
 
 .PHONY: golangci-lint
@@ -25,7 +36,7 @@ golangci-lint:
 
 
 .PHONY: lint
-lint: vet golangci-lint
+lint: go.vet golangci-lint
 
 .PHONY: check
-check: fmt lint
+check: check.go.fmt lint
