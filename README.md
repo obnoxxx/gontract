@@ -177,7 +177,7 @@ A couple of examples -- both positive and negative --  are provided to  illustra
 The example programs can be run from the root f the project repo with `go run` like so:
 
 ```console
-$ go run ./cmd/example_division/main.go 
+$ go run ./cmd/examples/division/main.go
  10.000000 divided by 2.000000  is 5.000000
  4.000000 divided by 2.000000  is 2.000000
  1.000000 divided by 2.000000  is 0.500000
