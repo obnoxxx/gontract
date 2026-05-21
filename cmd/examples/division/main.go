@@ -4,20 +4,25 @@ package main
 
 import (
 	"fmt"
+	"math"
 
 	"github.com/gontract/gontract"
 )
 
-var EPSILON float64 = 0.00000001
+const epsilon = 1e-8
 
-// floaEquals():
+// floatEquals():
 // function to use instead of == for comparing floats.
-// This takes rounding errors into accout.
+// This takes rounding errors into account.
 func floatEquals(a, b float64) bool {
-	if (a-b) < EPSILON && (b-a) < EPSILON {
+	// absolute comparison:
+	diff := math.Abs(a - b)
+	if diff < epsilon {
 		return true
 	}
-	return false
+	// additional relative comparison to avoid false negatives
+	largest := math.Max(math.Abs(a), math.Abs(b))
+	return diff < largest*epsilon
 }
 
 func Divide(dividend float64, divisor float64) (quotient float64) {
