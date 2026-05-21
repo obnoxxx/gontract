@@ -14,7 +14,7 @@ on:
 jobs:
 
   build:
-    name: vet  and test
+    name: lint  and test
     runs-on: ${{ matrix.os }}
     permissions:
       contents: read
@@ -50,15 +50,7 @@ jobs:
       run: |
         echo "nothing to do"
 
-    - name:  lint the code
-      run: make check.go.lint
-      shell: bash
-
-    - name: check golang formatting
-      run: make check.go.fmt
-      shell: bash
-
-    - name:  run unit tests
+    - name:  run checks (linters and unit tests)
       run: make test
       shell: bash
 

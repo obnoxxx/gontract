@@ -1,5 +1,8 @@
 
+MK_SOURCE := Makefile
 
+
+CHECKMAKE := go run github.com/checkmake/checkmake/cmd/checkmake@v0.3.2
 GOLANGCI_LINT := go run github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 
 
@@ -9,7 +12,7 @@ lint.go.vet:
 	@go vet ./...
 
 
-.PHOHY: lint.go.fmt
+.PHONY: lint.go.fmt
 lint.go.fmt:
 	@echo "Checking go formatting..."
 	@if [ -n "$$(gofmt -l .)" ]; then \
@@ -20,12 +23,16 @@ lint.go.fmt:
 		echo "All files formatted correctly."; \
 	fi
 
+.PHONY: lint.make
+lint.make: $(MK_SOURCE)
+	@$(CHECKMAKE) $(MK_SOURCE)
+
 .PHONY: fix.go.fmt
 fix.go.fmt: #␣fix␣go␣formatting (if needed)
 	@ go fmt ./...
 
 .PHONY: test
-test: lint
+test: lint.go
 	@go test ./...
 
 .PHONY: golangci-lint
@@ -41,4 +48,4 @@ lint.go: lint.go.fmt lint.go.vet golangci-lint
 lint: lint.go
 
 .PHONY: check
-check: test
+check: lint test
