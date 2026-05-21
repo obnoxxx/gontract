@@ -28,7 +28,7 @@ lint.make: $(MK_SOURCE)
 	@$(CHECKMAKE) $(MK_SOURCE)
 
 .PHONY: fix.go.fmt
-fix.go.fmt: #␣fix␣go␣formatting (if needed)
+fix.go.fmt: # fix go formatting (if needed)
 	@ go fmt ./...
 
 .PHONY: test
