@@ -19,7 +19,9 @@ lint.go.fmt:
 
 .PHONY: lint.make
 lint.make: Makefile
+	@echo "checking the Makefile..."
 	@$(CHECKMAKE) Makefile
+	@echo "The Makefile is OK."
 
 .PHONY: fix.go.fmt
 fix.go.fmt: # fix go formatting (if needed)
