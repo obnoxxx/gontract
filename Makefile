@@ -10,7 +10,7 @@ include examples.mk
 all: build.examples
 
 .PHONY: lint
-lint: lint.go
+lint: lint.go lint.make
 
 .PHONY: test
 test: test.go
