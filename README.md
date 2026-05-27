@@ -51,6 +51,15 @@ Require(..)
 
 ```
 
+## Interface wrappers
+
+For interface-based designs, keep the interface itself plain and apply
+preconditions and postconditions in a wrapper implementation around the real
+implementation.
+
+The companion package `github.com/gontract/gontract/ifacewrap` provides small
+helpers for that style. See `cmd/examples/ifacewrap_division` for a minimal
+example.
 
 
 
