@@ -16,7 +16,7 @@ lint: lint.go
 test: test.go
 
 .PHONY: check
-check: all check.build.all test run.examples.good
+check: all lint check.build.all test run.examples.good
 
 .PHONY: clean
 clean: clean.examples
