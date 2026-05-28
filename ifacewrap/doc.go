@@ -3,5 +3,6 @@
 //
 // The package does not attempt to generate wrappers or proxy arbitrary
 // interfaces. Instead, it keeps wrapper methods explicit and idiomatic while
-// factoring out the repetitive "require/body/ensure" control flow.
+// factoring out the repetitive "require/body/ensure" control flow while
+// automatically dispatching declarative checks through gontract.
 package ifacewrap

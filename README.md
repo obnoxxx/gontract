@@ -58,9 +58,10 @@ preconditions and postconditions in a wrapper implementation around the real
 implementation.
 
 The companion package `github.com/gontract/gontract/ifacewrap` provides small
-helpers for that style. See `cmd/examples/ifacewrap_division` for a minimal
-example.
-
+helpers for that style. Its declarative `Requirements` and `Assurances` run
+through `gontract.Require` and `gontract.Ensure` automatically, so wrapper code
+only needs to provide predicates and messages. See
+`cmd/examples/ifacewrap_division` for a minimal example.
 
 
 

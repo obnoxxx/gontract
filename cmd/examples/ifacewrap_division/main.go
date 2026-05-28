@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/gontract/gontract"
 	"github.com/gontract/gontract/ifacewrap"
 )
 
@@ -38,11 +37,21 @@ func newContractDivider(inner Divider) Divider {
 	return contractDivider{
 		inner: inner,
 		contract: ifacewrap.Contract[divideInput, divideOutput]{
-			Require: func(in divideInput) {
-				gontract.Require(in.divisor != 0, "divisor must be non-zero")
+			Requirements: []ifacewrap.Requirement[divideInput]{
+				{
+					Predicate: func(in divideInput) bool {
+						return in.divisor != 0
+					},
+					Message: "divisor must be non-zero",
+				},
 			},
-			Ensure: func(in divideInput, out divideOutput) {
-				gontract.Ensure(floatEquals(out.quotient*in.divisor, in.dividend), "quotient calculated correctly")
+			Assurances: []ifacewrap.Assurance[divideInput, divideOutput]{
+				{
+					Predicate: func(in divideInput, out divideOutput) bool {
+						return floatEquals(out.quotient*in.divisor, in.dividend)
+					},
+					Message: "quotient calculated correctly",
+				},
 			},
 		},
 	}
