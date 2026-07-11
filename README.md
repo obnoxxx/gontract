@@ -51,11 +51,12 @@ Require(..)
 
 ```
 
-## Interface wrappers
+## Interface wrappers (ifacewrap)
 
-For interface-based designs, keep the interface itself plain and apply
+For interface-based designs, it is best to keep the interface itself plain and apply
 preconditions and postconditions in a wrapper implementation around the real
-implementation.
+implementation instead of clobbering the function implementations with the contract implementations using
+`Require` and `Ensure`.
 
 The companion package `github.com/gontract/gontract/ifacewrap` provides small
 helpers for that style. Its declarative `Requirements` and `Assurances` run
