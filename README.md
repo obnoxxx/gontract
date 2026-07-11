@@ -64,21 +64,8 @@ through `gontract.Require` and `gontract.Ensure` automatically, so wrapper code
 only needs to provide predicates and messages. See
 `cmd/examples/ifacewrap_division` for a minimal example.
 
-# function wrappers (funcwrap)
+## function wrappers (funcwrap)
 
 In addition to ifacewrap, the companion package `github.com/gontract/gontract/funcwrap`
 provides helpers for defining a function along with its contract.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+See `cmd/examples/funcwrap_division` for a simple example.
