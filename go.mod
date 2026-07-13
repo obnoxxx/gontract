@@ -3,6 +3,7 @@ module github.com/gontract/gontract
 go 1.26
 
 require (
+	github.com/obnoxxx/manc v0.1.0
 	github.com/stretchr/testify v1.11.1
 	gitlab.com/stone.code/assert v1.1.4
 )

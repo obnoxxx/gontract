@@ -4,26 +4,10 @@ package main
 
 import (
 	"fmt"
-	"math"
 
 	"github.com/gontract/gontract"
+	"github.com/obnoxxx/manc"
 )
-
-const epsilon = 1e-8
-
-// floatEquals():
-// function to use instead of == for comparing floats.
-// This takes rounding errors into account.
-func floatEquals(a, b float64) bool {
-	// absolute comparison:
-	diff := math.Abs(a - b)
-	if diff < epsilon {
-		return true
-	}
-	// additional relative comparison to avoid false negatives
-	largest := math.Max(math.Abs(a), math.Abs(b))
-	return diff < largest*epsilon
-}
 
 func Divide(dividend float64, divisor float64) (quotient float64) {
 
@@ -31,7 +15,7 @@ func Divide(dividend float64, divisor float64) (quotient float64) {
 	gontract.Require(divisor != 0, "divisor must be non-zero")
 	// postcondition:
 	defer func() {
-		gontract.Ensure(floatEquals(quotient*divisor, dividend), "quotient calculated correctly")
+		gontract.Ensure(manc.FloatEquals(quotient*divisor, dividend), "quotient calculated correctly")
 	}()
 
 	quotient = dividend / divisor
