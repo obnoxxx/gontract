@@ -69,3 +69,9 @@ only needs to provide predicates and messages. See
 In addition to ifacewrap, the companion package `github.com/gontract/gontract/funcwrap`
 provides helpers for defining a function along with its contract.
 See `cmd/examples/funcwrap_division` for a simple example.
+
+## Example and split-out: manc
+
+A small math helper library has been split out of the division examples into a separate project [manc](https://github.com/obnoxxx/manc).
+
+To increase the cohesion but hopefully not the confusion, manc uses gontract for function contracts while being used in contract specifications in the division examples in the gontract projects itself.
