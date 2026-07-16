@@ -5,17 +5,24 @@ import (
 	"math"
 
 	"github.com/gontract/gontract"
+	"github.com/obnoxxx/manc"
 )
 
-func CalculateSqrt(n float64) float64 {
+func CalculateSqrt(n float64) (r float64) {
 
-	gontract.Require(n >= 0, "square root undefined for negative numbers")
+	// PRECONDITIONS:
+	gontract.Require(!math.IsNaN(n), "Input must be a number.")
+	gontract.Require(!math.IsInf(n, 0), "Input must be finite.")
+	gontract.Require(n >= 0, "Input must be non-negative.")
+	// POSTCONDITIONS:
+	defer func() {
+		gontract.Ensure(!math.IsNaN(r), "result must be a number.")
+		gontract.Ensure(manc.FloatEquals(r*r, n), "Square of result must equal input.")
+	}()
 
-	r := math.Sqrt(n)
+	r = math.Sqrt(n)
 
-	gontract.Ensure(r*r == n, "input must equal square of result")
-
-	return r
+	return
 }
 
 func main() {
