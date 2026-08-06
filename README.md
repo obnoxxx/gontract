@@ -73,7 +73,7 @@ Ensure(predicate, "message")
 
 These examples are not intended to work, just to illustrate ideas.
 
-For real, workingexamples, look into cmd/examples/
+For real, working examples, look into [the examples folder](cmd/examples/)
 
 
 ## Interface wrappers (ifacewrap)
