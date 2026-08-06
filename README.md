@@ -26,30 +26,55 @@
 
 ## Best Practice
 
-A very natural pattern is to put posconditions into a defer statement like so:
+The typical use of gontract is to wrap the implementation body of a function in a
+Require-Ensure-sandwich. Here is an incomplete, non-working example to illustrate the idea:
+
+```go
+func myfunc(args) {
+// precondition(s):
+Require(predicate, "message")
+...
+Require(predicate, "message")
+// implementation
+...
+// postcondition(s):
+Ensure(predicate, "message")
+Ensure(predicate, "message")
+...
+}
+```
+
+
+A very natural pattern is to put postconditions into a defer statement like so:
 
 ```go
 
-func myfunc(args...) {
+func myfunc(args) {
+// precondition(s):
+Require(predicate, "message")
+...
+Require(predicate, "message")
+...
 
 // postcondition(s):
 defer func() {
 
-Ensure(..)
-..Ensure(..)
+Ensure(predicate, "message")
+...
+Ensure(predicate, "message")
 
 }()
 
 
-// precondtions:
-Require(..)
+// implementation
 ...
-Require(..)
-...
-//implementation
-...
-
+}
 ```
+
+These examples are not intended to work, just to illustrate ideas.
+
+For real, workingexamples, look into cmd/examples/
+
 
 ## Interface wrappers (ifacewrap)
 
