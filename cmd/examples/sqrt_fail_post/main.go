@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/gontract/gontract"
+	"github.com/obnoxxx/manc"
 )
 
 func CalculateSqrt(n float64) (r float64) {
@@ -11,7 +12,7 @@ func CalculateSqrt(n float64) (r float64) {
 	// precondition:
 	gontract.Require(n >= 0, "square root undefined for negative numbers")
 	// postcondition:
-	defer gontract.Ensure(r*r == n, "square root calculated correctly")
+	defer gontract.Ensure(manc.FloatsAreEqual(r*r, n), "square root calculated correctly")
 
 	// Bug: This calculation of the result is wrong and breaks
 	// contract (see postcondition below).

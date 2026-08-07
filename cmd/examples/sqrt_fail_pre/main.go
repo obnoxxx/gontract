@@ -5,6 +5,7 @@ import (
 	"math"
 
 	"github.com/gontract/gontract"
+	"github.com/obnoxxx/manc"
 )
 
 func CalculateSqrt(n float64) float64 {
@@ -13,7 +14,7 @@ func CalculateSqrt(n float64) float64 {
 
 	r := math.Sqrt(n)
 
-	gontract.Ensure(r*r == n, "input must equal square of result")
+	gontract.Ensure(manc.FloatsAreEqual(r*r, n), "input must equal square of result")
 
 	return r
 }

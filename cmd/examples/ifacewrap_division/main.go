@@ -38,7 +38,7 @@ func newContractDivider(inner Divider) Divider {
 			Requirements: []ifacewrap.Requirement[divideInput]{
 				{
 					Predicate: func(in divideInput) bool {
-						return in.divisor != 0
+						return !manc.FloatIsZero(in.divisor)
 					},
 					Message: "divisor must be non-zero",
 				},

@@ -24,7 +24,7 @@ func Divide(dividend float64, divisor float64) (quotient float64) {
 		funcwrap.Contract[divideInput, divideOutput]{
 			Requirements: []funcwrap.Requirement[divideInput]{
 				{
-					Predicate: func(in divideInput) bool { return in.divisor != 0 },
+					Predicate: func(in divideInput) bool { return !manc.FloatIsZero(in.divisor) },
 					Message:   "divisor must be non-zero",
 				},
 			},
