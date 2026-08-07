@@ -17,7 +17,7 @@ func CalculateSqrt(n float64) (r float64) {
 	// POSTCONDITIONS:
 	defer func() {
 		gontract.Ensure(!math.IsNaN(r), "result must be a number.")
-		gontract.Ensure(manc.FloatEquals(r*r, n), "Square of result must equal input.")
+		gontract.Ensure(manc.FloatsAreEqual(r*r, n), "Square of result must equal input.")
 	}()
 
 	r = math.Sqrt(n)

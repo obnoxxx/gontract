@@ -15,7 +15,7 @@ func Divide(dividend float64, divisor float64) (quotient float64) {
 	gontract.Require(divisor != 0, "divisor must be non-zero")
 	// postcondition:
 	defer func() {
-		gontract.Ensure(manc.FloatEquals(quotient*divisor, dividend), "quotient calculated correctly")
+		gontract.Ensure(manc.FloatsAreEqual(quotient*divisor, dividend), "quotient calculated correctly")
 	}()
 
 	quotient = dividend / divisor

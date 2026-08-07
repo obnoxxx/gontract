@@ -31,7 +31,7 @@ func Divide(dividend float64, divisor float64) (quotient float64) {
 			Assurances: []funcwrap.Assurance[divideInput, divideOutput]{
 				{
 					Predicate: func(in divideInput, out divideOutput) bool {
-						return manc.FloatEquals(out.quotient*in.divisor, in.dividend)
+						return manc.FloatsAreEqual(out.quotient*in.divisor, in.dividend)
 					},
 					Message: "quotient calculated correctly",
 				},
